@@ -1,0 +1,31 @@
+.container{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 1px solid #53c28b;
+    padding: 13px;
+    box-shadow: 1px 1px 14px 2px hwb(0deg 52.05% 43.31%);
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logout{
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background-color: #53c28b;
+    color: white;
+    cursor: pointer;
+}

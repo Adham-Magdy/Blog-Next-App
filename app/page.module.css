@@ -17,7 +17,7 @@
     -webkit-text-fill-color: transparent;
   }
 .img {
-  object-fit: cover;
+  object-fit: contain;
   animation: move 2s  infinite ease alternate;
 }
 .desc{

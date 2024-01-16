@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import NavBar from './components/navBar/NavBar'
 import Footer from './components/footer/Footer'
+import ThemeContextToggle from './context/ThemeContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className='container'>
+      <ThemeContextToggle>
+      <div className='container'>
         <NavBar/>
         {children}
         <Footer/>
         </div>
+      </ThemeContextToggle>
         </body>
     </html>
   )

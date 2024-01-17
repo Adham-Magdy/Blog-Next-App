@@ -2,126 +2,48 @@ import React from "react";
 import styles from "./page.module.css";
 import Button from "@/app/components/Button/Button";
 import Image from "next/image";
+import { items } from "./data";
+import { notFound } from "next/navigation";
 
+// fetch data from local json file
+type dataType = {
+  id:number,
+  title:string,
+  desc:string,
+  image:string
+}
+const getData = (cat)=>{
+  const data = items[cat];
+
+  if(data){
+    return data;
+  }
+  return notFound();
+
+}
 const Category = ({ params }: any) => {
   // const {params} = useParams();
+  const data = getData(params.category);
   return (
     <div className={styles.container}>
       <h1 className={styles.catTitle}>{params.category}</h1>
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            sunt, provident voluptates earum placeat cumque officiis, dolores,
-            sit labore quia minus quos perferendis fuga similique. Nisi nam
-            aliquid eius eum.
-          </p>
-          <Button url="#" text="See More" />
+      {data.map((item:any) => (
+        <div className={styles.item} key={item.id}>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.desc}>{item.desc}</p>
+            <Button text="See More" url="#" />
+          </div>
+          <div className={styles.imgContainer}>
+            <Image
+              className={styles.img}
+              fill={true}
+              src={item.image}
+              alt=""
+            />
+          </div>
         </div>
-        <div className={styles.imgContainer}>
-          <Image
-            src={
-              "https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg"
-            }
-            fill={true}
-            alt=""
-            className={styles.img}
-          />
-        </div>
-      </div>
-      {/* Second */}
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur
-            quia aperiam nihil, minus repellat quam exercitationem eaque iste
-            saepe vel dolorum architecto. Beatae nemo itaque dolores quibusdam
-            quisquam quam?
-          </p>
-          <Button url="#" text="See More" />
-        </div>
-        <div className={styles.imgContainer}>
-          <Image
-            src={
-              "https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg"
-            }
-            fill={true}
-            alt=""
-            className={styles.img}
-          />
-        </div>
-      </div>
-      {/* Third */}
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur
-            quia aperiam nihil, minus repellat quam exercitationem eaque iste
-            saepe vel dolorum architecto. Beatae nemo itaque dolores quibusdam
-            quisquam quam?
-          </p>
-          <Button url="#" text="See More" />
-        </div>
-        <div className={styles.imgContainer}>
-          <Image
-            src={
-              "https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg"
-            }
-            fill={true}
-            alt=""
-            className={styles.img}
-          />
-        </div>
-      </div>
-      {/* Fourth */}
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur
-            quia aperiam nihil, minus repellat quam exercitationem eaque iste
-            saepe vel dolorum architecto. Beatae nemo itaque dolores quibusdam
-            quisquam quam?
-          </p>
-          <Button url="#" text="See More" />
-        </div>
-        <div className={styles.imgContainer}>
-          <Image
-            src={
-              "https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg"
-            }
-            fill={true}
-            alt=""
-            className={styles.img}
-          />
-        </div>
-      </div>
-      {/* Fives */}
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>
-          <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur
-            quia aperiam nihil, minus repellat quam exercitationem eaque iste
-            saepe vel dolorum architecto. Beatae nemo itaque dolores quibusdam
-            quisquam quam?
-          </p>
-          <Button url="#" text="See More" />
-        </div>
-        <div className={styles.imgContainer}>
-          <Image
-            src={
-              "https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg"
-            }
-            fill={true}
-            alt=""
-            className={styles.img}
-          />
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

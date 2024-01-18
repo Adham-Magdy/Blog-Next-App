@@ -8,7 +8,7 @@ export const GET = async(request:any)=>{
         
         // return all posts 
         const posts = await Post.find();
-        return new NextResponse(posts,{status:200});
+        return new NextResponse(JSON.stringify(posts),{status:200});
     }catch(err){
         return new NextResponse("Data Connection Failed",{status:500});
     }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound, useParams } from "next/navigation";
 
 async function getData(id:any){
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`,{
     cache:'no-store'
   });
 
@@ -24,29 +24,22 @@ const BlogPost = async ({params}:any) => {
             {data.title}
           </h1>
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-            aliquam ea provident eaque similique ratione in sapiente error autem
-            commodi obcaecati suscipit ipsa iste laboriosam, excepturi, culpa,
-            architecto natus labore.
+            {data.desc}
           </p>
           <div className={styles.author}>
             <Image
-              src={
-                "https://images.pexels.com/photos/19748574/pexels-photo-19748574/free-photo-of-a-man-walking-down-the-street-with-a-suitcase.jpeg?auto=compress&cs=tinysrgb&w=600"
-              }
+              src={data.img}
               alt=""
               width={40}
               height={40}
               className={styles.avatar}
             />
-            <span className={styles.username}>Adham Magdy</span>
+            <span className={styles.username}>{data.userName}</span>
           </div>
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src={
-              "https://images.pexels.com/photos/13247769/pexels-photo-13247769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            }
+            src={data.img}
             alt=""
             fill={true}
             className={styles.image}
@@ -55,11 +48,7 @@ const BlogPost = async ({params}:any) => {
       </div>
       <div className={styles.content}>
         <p className={styles.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In, ipsa neque! Vitae architecto nemo dignissimos, nostrum fugiat, sed pariatur ipsam quod maxime doloribus recusandae error, molestias ab reiciendis exercitationem non?
-        <br/>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui repudiandae distinctio aliquid mollitia sint modi tempora sequi, optio voluptatem ducimus recusandae cupiditate similique, corporis culpa provident nostrum unde, iure repellendus.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, quod vitae ad aut repellat incidunt neque consectetur eius ea officia, dignissimos suscipit voluptatum molestiae mollitia harum, provident temporibus? Neque, laboriosam?
-        
+          {data.content}
         </p>
       </div>
     </div>

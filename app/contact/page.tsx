@@ -3,6 +3,12 @@ import styles from './page.module.css'
 import Image from 'next/image'
 import Button from '../components/Button/Button'
 
+//  Adding SEO for this page [title , description]
+export  const metadata={
+  title:"Blog Contact Info",
+  description:"Contact Page"
+
+};
 const Contact = () => {
   return (
     <div className={styles.container}>

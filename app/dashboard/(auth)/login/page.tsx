@@ -5,7 +5,7 @@ import React from 'react'
 const Login = () => {
   return (
     <div>
-      <button onClick={()=>signIn("google")}>Login With Google</button>
+      <button onClick={()=>signIn("google",{callbackUrl:"http://localhost:3000/dashboard"})}>Login With Google</button>
     </div>
   )
 }

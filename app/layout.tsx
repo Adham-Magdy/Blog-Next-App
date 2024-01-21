@@ -4,6 +4,7 @@ import './globals.css'
 import NavBar from './components/navBar/NavBar'
 import Footer from './components/footer/Footer'
 import ThemeContextToggle from './context/ThemeContext'
+import AuthProvider from './components/AuthProvider/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,11 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
       <ThemeContextToggle>
+      <AuthProvider>
       <div className='container'>
         <NavBar/>
         {children}
         <Footer/>
         </div>
+      </AuthProvider>
       </ThemeContextToggle>
         </body>
     </html>

@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.registerForm {
+  width: 350px;
+  flex-direction: column;
+  display: flex;
+  gap: 20px;
+  border: 1px solid lightblue;
+  padding: 20px;
+  border-radius: 10px;
+}
+.input {
+  padding: 15px;
+  background: transparent;
+  border: 1px solid #bbb;
+  outline: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #bbb;
+}
+.btnRegister {
+  padding: 20px;
+  cursor: pointer;
+  background-color: #53c28b;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+}
